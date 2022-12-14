@@ -2,3 +2,13 @@
 {{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
 {{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
 {{- /* Head custom content area end */ -}}
+
+
+{{- /* Katex */}}
+{{ if .Params.math }}{{ partial "helpers/katex.html" . }}{{ end }}
+
+{{/*  Chart.js  */}}
+{{ if .Page.Store.Get "hasChart" }}{{ partial "helpers/chart.html" . }}{{ end }}
+
+{{/*  Mermaid.js  */}}
+{{ if .Page.Store.Get "hasMermaid" }}{{ partial "helpers/mermaid.html" . }}{{ end }}
